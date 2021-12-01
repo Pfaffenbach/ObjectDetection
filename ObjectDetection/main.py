@@ -20,14 +20,14 @@ while True:
     numberPlates = nPlateCascade.detectMultiScale(imgGray, 1.1, 10)
     for (x, y, w, h) in numberPlates:
         area = w * h
-        #Area da placa deve ser maior que a minArea
+        #Area da placa precisa ser maior que a minArea
         if area > minArea:
-            #Definindo o retangulo em volta da placa
+            #Definindo o retangulo que fica em volta da placa
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 255), 2)
             #Definindo o teto que vai em cima do retangulo
             cv2.putText(img, "Placa", (x, y - 5),
                         cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
-            #Pegando apenas a imagem da regiao selecionada
+            #Pegando apenas a imagem da regiao selecionada pelo triangulo
             imgRoi = img[y:y+h,x:x+w]
             cv2.imshow("ROI", imgRoi)
 
