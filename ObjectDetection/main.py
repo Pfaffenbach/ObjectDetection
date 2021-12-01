@@ -33,7 +33,7 @@ while True:
 
     cv2.imshow("Result", img)
 
-    #salvando a imagem da placa pressionando s
+    #salvando a imagem da placa pressionando s, como se fosse um radar
     if cv2.waitKey(1) == ord('s') :
         cv2.imwrite("Resources/Scanned/NoPlate_" + str(count) + ".jpg", imgRoi)
         cv2.rectangle(img,(0, 200), (640, 300), (0, 255, 0), cv2.FILLED)
